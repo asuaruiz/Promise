@@ -29,9 +29,12 @@ function getRepositories(username) {
   
 }
 
-function getCommits(repo, callback) {
-  setTimeout(() => {
-    console.log('Calling GitHub API...');
-    callback(['commit']);
-  }, 2000);
+function getCommits(repo) {
+  return new Promise((resolve,reject) => {
+    setTimeout(() => {
+      console.log('Calling GitHub API...');
+      resolve(['commit']);
+    }, 2000);
+  })
+  
 }
