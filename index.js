@@ -1,19 +1,18 @@
 console.log('Before');
-getUser(1, (user) => {
-  getRepositories(user.gitHubUsername, (repos) => {
-    getCommits(repos[0], (commits) => {
-      console.log(commits);
-    })
-  })
-});
+
 console.log('After');
+
+getUser(1)
+  .then(user => getRepositories(user.gitHubUsername))
+  .then(repos => getCommits(repos[0]))
+  .then(commits => console.log('Commits',commits));
 
 function getUser(id) {
   return new Promise((resolve,reject) => {
     //Async To simulate Promise
     setTimeout(() => {
       console.log('Reading a user from a database...');
-      resolve({ id: id, gitHubUsername: 'mosh' });
+      resolve({ id: id, gitHubUsername: 'Andrea' });
     }, 2000);
   })
   
