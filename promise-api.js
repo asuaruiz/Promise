@@ -24,3 +24,5 @@ Promise.all([p1,p2])
 
 
 // if one of the two promises its rejected,, the array of all promises with be rejected too.
+
+// if we want that at least one its fullfilled, we change .all for .race
